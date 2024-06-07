@@ -82,7 +82,7 @@
         options.desc = "Format buffer";
         action.__raw = ''
           function()
-            vim.lsp.format()
+            vim.lsp.buf.format()
           end
         '';
       }

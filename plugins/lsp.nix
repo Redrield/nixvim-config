@@ -48,7 +48,22 @@
         '';
       }
       {
-        key = "<leader>ld";
+        key = "K";
+        options.desc = "Show hover";
+        action = "<cmd>lua vim.lsp.buf.hover()<CR>";
+      }
+      {
+        key = "gd";
+        options.desc = "Goto definition";
+        action = "<cmd>lua vim.lsp.buf.definition()<CR>";
+      }
+      {
+        key = "gr";
+        options.desc = "Goto references";
+        action = "<cmd>lua vim.lsp.buf.references()<CR>";
+      }
+      {
+        key = "gl";
         options.desc = "LSP Line Diagnostics";
         action.__raw = ''
           function()

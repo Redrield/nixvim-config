@@ -11,7 +11,7 @@
       enable = true;
       autostart = true;
       package = null;
-      extraOptions = builtins.fromJSON (builtins.readFile "$HOME/.config/lsp/rust.json")
+      extraOptions = builtins.fromJSON (builtins.readFile "$HOME/.config/lsp/rust.json");
     };
     servers.gopls = {
       enable = true;

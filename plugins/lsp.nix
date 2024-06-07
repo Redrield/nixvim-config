@@ -16,7 +16,9 @@
           local path = cconf.workspace_folders[1].name
           local conf = vim.fs.find("rust_analyzer.json", { path = path })
           if #conf == 1 then
-            local contents = vim.secure.read(conf[1])
+            local hdle = io.open(conf[1], "r")
+            local contents = hdle:read("*all")
+            hdle:close()
             if contents ~= nil then
               params.initializationOptions = vim.tbl_deep_extend('force', params.initializationOptions, vim.json.decode(contents))
             end

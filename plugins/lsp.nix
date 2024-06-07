@@ -34,6 +34,13 @@
       autostart = true;
       package = null;
     };
+
+    keymaps.lspBuf = {
+      K = "hover";
+      gd = "definition";
+      gr = "references";
+
+    };
   };
 
   rootOpts = {
@@ -46,21 +53,6 @@
             vim.lsp.buf.code_action()
           end
         '';
-      }
-      {
-        key = "K";
-        options.desc = "Show hover";
-        action = "<cmd>lua vim.lsp.buf.hover()<CR>";
-      }
-      {
-        key = "gd";
-        options.desc = "Goto definition";
-        action = "<cmd>lua vim.lsp.buf.definition()<CR>";
-      }
-      {
-        key = "gr";
-        options.desc = "Goto references";
-        action = "<cmd>lua vim.lsp.buf.references()<CR>";
       }
       {
         key = "gl";

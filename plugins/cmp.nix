@@ -14,8 +14,7 @@
 
     settings.mapping = {
       "<CR>" = "cmp.mapping.confirm({ select = true  })";
-      "<Tab>" = {
-        action = ''
+      "<Tab>" = ''
           function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -23,8 +22,7 @@
               fallback()
             end
           end
-        '';
-      };
+      '';
     };
   };
   rootOpts = {

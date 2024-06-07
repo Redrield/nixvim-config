@@ -33,8 +33,8 @@ in
     }
     {
       key = "<leader>c";
-      action = "<cmd>close<CR>";
-      options.desc = "Close current window";
+      action = "<cmd>bd<CR>";
+      options.desc = "Close current buffer";
     }
     {
       key = "<leader>q";

@@ -161,8 +161,18 @@
     keymaps = [
       {
         key = "<leader>bb";
-        options.desc = "Select buffer from tabline";
+        options.desc = "Move to the previous buffer";
 
+        action = "<cmd>bprevious<CR>";
+      }
+      {
+        key = "<leader>bn";
+        options.desc = "Move to the next buffer";
+        action = "<cmd>bnext<CR>";
+      }
+      {
+        key = "<leader>bj";
+        options.desc = "Select buffer from tabline";
         action.__raw = ''
           function()
             require("astroui.status.heirline").buffer_picker(function(bufnr) vim.api.nvim_win_set_buf(0, bufnr) end)

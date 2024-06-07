@@ -31,5 +31,15 @@ in
       action = "<cmd>split<cr>";
       options.desc = "Split horizontally";
     }
+    {
+      key = "<leader>c";
+      action = "<cmd>close<CR>";
+      options.desc = "Close current window";
+    }
+    {
+      key = "<leader>q";
+      action = "<cmd>quitall<CR>";
+      options.desc = "Quits all buffers and exits";
+    }
   ];
 }

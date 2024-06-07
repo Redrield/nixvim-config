@@ -35,4 +35,23 @@
       package = null;
     };
   };
+
+  rootOpts = {
+    keymaps = [
+      {
+        key = "<leader>la";
+        options.desc = "LSP Code actions";
+        action.__raw = ''
+          function()
+            vim.lsp.buf.code_action()
+          end
+        '';
+      }
+      {
+        key = "ld";
+        options.desc = "LSP Line Diagnostics";
+        action = "<cmd>Telescope diagnostics<CR>";
+      }
+    ];
+  };
 }

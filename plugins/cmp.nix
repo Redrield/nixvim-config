@@ -3,7 +3,8 @@
   opts = {
     enable = true;
     autoEnableSources = true;
-    cmdline.sources = [
+    settings.snippet.expand = "luasnip";
+    settings.sources = [
       { name = "nvim_lsp"; }
       { name = "path"; }
       { name = "buffer"; }
@@ -11,7 +12,7 @@
     ];
 
 
-    cmdline.mapping = {
+    settings.mapping = {
       "<CR>" = "cmp.mapping.confirm({ select = true  })";
       "<Tab>" = {
         action = ''

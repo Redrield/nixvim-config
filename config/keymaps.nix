@@ -33,7 +33,7 @@ in
     }
     {
       key = "<leader>c";
-      action = "<cmd>bd%<CR>";
+      action = "<cmd>bp<CR><cmd>bd #<CR>";
       options.desc = "Close current buffer";
     }
     {

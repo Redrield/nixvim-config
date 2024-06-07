@@ -2,6 +2,12 @@
 {
   opts = {
     enable = true;
+    setupWrappers = args: ''
+      on_init = function(client)
+        
+      end,
+      ${args}
+    '';
     servers.nixd = {
       enable = true;
       autostart = true;
@@ -11,6 +17,18 @@
     servers.rust-analyzer = {
       installCargo = false;
       installRustc = false;
+      extraOptions.before_init.__raw = ''
+        function(params, cconf)
+          local path = cconf.workspace_folders[1].name
+          local conf = vim.fs.find("rust_analyzer.json", { path = path })
+          if #conf == 1 then
+            local contents = vim.secure.read(conf)
+            if contents ~= nil then
+              params.initializationOptions = vim.tbl_deep_extend('force', params.initializationOptions, vim.json.decode(contents))
+            end
+          end
+        end
+      '';
       enable = true;
       autostart = true;
       package = null;

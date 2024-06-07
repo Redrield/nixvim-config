@@ -2,12 +2,6 @@
 {
   opts = {
     enable = true;
-    setupWrappers = args: ''
-      on_init = function(client)
-        
-      end,
-      ${args}
-    '';
     servers.nixd = {
       enable = true;
       autostart = true;

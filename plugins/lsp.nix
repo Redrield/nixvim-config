@@ -48,9 +48,28 @@
         '';
       }
       {
-        key = "ld";
+        key = "<leader>ld";
         options.desc = "LSP Line Diagnostics";
-        action = "<cmd>Telescope diagnostics<CR>";
+        action.__raw = ''
+          function()
+            local float = vim.diagnostic.config().float
+
+            if float then
+              local config = type(float) == "table" and float or {}
+              config.scope = "line"
+              vim.diagnostic.open_float(config)
+            end
+          end
+        '';
+      }
+      {
+        key = "<leader>lf";
+        options.desc = "Format buffer";
+        action.__raw = ''
+          function()
+            vim.lsp.format()
+          end
+        '';
       }
     ];
   };

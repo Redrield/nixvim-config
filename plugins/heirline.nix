@@ -160,6 +160,7 @@
 
     keymaps = [
       {
+        mode = "n";
         key = "<leader>bb";
         options.desc = "Move to the previous buffer";
 
@@ -180,6 +181,7 @@
         '';
       }
       {
+        mode = "n";
         key = "<leader>bd";
         options.desc = "Close buffer from tabline";
 
@@ -192,6 +194,7 @@
         '';
       }
       {
+        mode = "n";
         key = "<leader>b\\";
         options.desc = "Horizontal split buffer from tabline";
 
@@ -205,6 +208,7 @@
         '';
       }
       {
+        mode = "n";
         key = "<leader>b|";
         options.desc = "Vertical split buffer from tabline";
 

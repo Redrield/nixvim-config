@@ -1,10 +1,11 @@
 # homepage: https://github.com/folke/which-key.nvim
 # nixvim doc: https://nix-community.github.io/nixvim/plugins/which-key/index.html
-_:
+{ icons, ... }:
 
 {
   opts = {
     enable = true;
+    icons.group = "";
     window.border = "single";
 
     # Disable which-key when in neo-tree or telescope
@@ -13,6 +14,20 @@ _:
       "neo-tree"
       "neo-tree-popup"
     ];
+
+    # Customize section names (prefixed mappings)
+    registrations = {
+      "<leader>b".name = "${icons.Tab} Buffers";
+      "<leader>bs".name = "${icons.Sort} Sort Buffers";
+      "<leader>d".name = "${icons.Debugger} Debugger";
+      "<leader>f".name = "${icons.Search} Find";
+      "<leader>g".name = "${icons.Git} Git";
+      "<leader>l".name = "${icons.ActiveLSP} Language Tools";
+      "<leader>s".name = " Incremental Selection";
+      "<leader>S".name = "${icons.Session} Session";
+      "<leader>t".name = "${icons.Terminal} Terminal";
+      "<leader>u".name = "${icons.Window} UI/UX";
+    };
   };
 
   # Enable catppuccin colors

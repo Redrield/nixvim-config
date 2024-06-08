@@ -3,6 +3,11 @@
 # Use :h <option> to load help for given <option>
 {
   opts = {
+    # Don't stop backspace at insert
+    backspace.__raw = ''
+      vim.list_extend(vim.opt.backspace:get(), { "nostop" })
+    '';
+
     # Keep visual indentation on wrapped lines
     breakindent = true;
 
@@ -12,14 +17,25 @@
     # Insert mode completion options
     completeopt = [ "menu" "menuone" "noselect" ];
 
+    # Raise a dialog asking if you wish to save the current file(s)
+    confirm = true;
+
     # Copy previous indentation on autoindenting
     copyindent = true;
 
     # Highlight current line
     cursorline = true;
 
+    # Enable linematch diff algorithm
+    diffopt.__raw = ''
+      vim.list_extend(vim.opt.diffopt:get(), { "algorithm:histogram", "linematch:60" })
+    '';
+
     # Expand <Tab> to spaces
     expandtab = true;
+
+    # Disable `~` on nonexistent lines
+    fillchars = { eob = " "; };
 
     # Enable fold with all code unfolded
     foldcolumn = "1";
@@ -52,6 +68,9 @@
     # - non-breakable spaces are shown as ⎕
     listchars = "tab:‒▶,trail:·,multispace:·,lead: ,nbsp:⎕";
 
+    # Enable mouse support
+    mouse = "a";
+
     # Show line numbers
     number = true;
 
@@ -70,6 +89,11 @@
 
     # Number of spaces to use for indentation
     shiftwidth = 2;
+
+    # Disable search count wrap and startup messages
+    shortmess.__raw = ''
+      vim.tbl_deep_extend("force", vim.opt.shortmess:get(), { s = true, I = true })
+    '';
 
     # Disable showing modes in command line
     showmode = false;
@@ -107,11 +131,18 @@
     # Save undo history to undo file (in $XDG_STATE_HOME/nvim/undo)
     undofile = true;
 
+    viewoptions.__raw = ''
+      vim.tbl_filter(function(val) return val ~= "curdir" end, vim.opt.viewoptions:get())
+    '';
+
     # Enable virtual edit in visual block mode
     # This has the effect of selecting empty cells beyond lines boundaries
     virtualedit = "block";
 
     # Disable line wrapping
     wrap = false;
+
+    # Disable making a backup before overwriting a file
+    writebackup = false;
   };
 }

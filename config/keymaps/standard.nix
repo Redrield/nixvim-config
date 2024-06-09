@@ -38,13 +38,13 @@ in
   {
     mode = "n";
     key = "<leader>q";
-    action = "<cmd>confirm q<cr>";
+    action = "<cmd>confirm quitall<CR>";
     options.desc = "Quit window";
   }
   {
     mode = "n";
     key = "<leader>Q";
-    action = "<cmd>confirm qall<cr>";
+    action = "<cmd>qa!<CR>";
     options.desc = "Exit neovim";
   }
   {

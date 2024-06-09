@@ -6,22 +6,14 @@
     key = "<leader>c";
     options.desc = "Close buffer";
 
-    action.__raw = ''
-      function()
-        require("astrocore.buffer").close()
-      end
-    '';
+    action = "<cmd>bp<CR><cmd>bd #<CR>";
   }
   {
     mode = "n";
     key = "<leader>C";
     options.desc = "Force close buffer";
 
-    action.__raw = ''
-      function()
-        require("astrocore.buffer").close(0, true)
-      end
-    '';
+    action = "<cmd>bp<CR><cmd>bd! #<CR>";
   }
   {
     mode = "n";

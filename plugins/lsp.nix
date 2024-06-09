@@ -70,6 +70,11 @@
         '';
       }
       {
+        key = "<leader>lr";
+        options.desc = "Rename symbol under cursor";
+        action = "<cmd>lua vim.lsp.buf.rename()<CR>";
+      }
+      {
         key = "<leader>lf";
         options.desc = "Format buffer";
         action.__raw = ''

@@ -8,9 +8,7 @@
       { name = "nvim_lsp"; }
       { name = "path"; }
       { name = "buffer"; }
-      { name = "cmdline"; }
     ];
-
 
     settings.mapping = {
       "<CR>" = "cmp.mapping.confirm({ select = true  })";
@@ -24,6 +22,20 @@
           end
       '';
     };
+
+    cmdline.":" = {
+      mapping.__raw = "cmp.mapping.preset.cmdline()";
+      sources = [
+        { name = "path"; }
+        {
+          name = "cmdline";
+          option.ignore_cmds = [
+            "Man"
+            "!"
+          ];
+        }
+      ]
+    }
   };
   rootOpts = {
     keymaps = [

@@ -55,18 +55,27 @@
       K = "hover";
       gd = "definition";
       gr = "references";
-
+      "<leader>la" = "code_action";
+      "<leader>lr" = "rename";
+      "<leader>lf" = "format";
     };
   };
 
   rootOpts = {
+    # Need to special case this because it isn't just calling vim.lsp.buf.<action>
     keymaps = [
       {
-        key = "<leader>la";
-        options.desc = "LSP Code actions";
+        key = "<leader>ld";
+        options.desc = "LSP Buffer Diagnostics";
         action.__raw = ''
           function()
-            vim.lsp.buf.code_action()
+            local float = vim.diagnostic.config().float
+
+            if float then
+              local config = type(float) == "table" and float or {}
+              config.scope = "buffer"
+              vim.diagnostic.open_float(config)
+            end
           end
         '';
       }
@@ -82,20 +91,6 @@
               config.scope = "line"
               vim.diagnostic.open_float(config)
             end
-          end
-        '';
-      }
-      {
-        key = "<leader>lr";
-        options.desc = "Rename symbol under cursor";
-        action = "<cmd>lua vim.lsp.buf.rename()<CR>";
-      }
-      {
-        key = "<leader>lf";
-        options.desc = "Format buffer";
-        action.__raw = ''
-          function()
-            vim.lsp.buf.format()
           end
         '';
       }

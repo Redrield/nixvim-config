@@ -60,40 +60,4 @@
       "<leader>lf" = "format";
     };
   };
-
-  rootOpts = {
-    # Need to special case this because it isn't just calling vim.lsp.buf.<action>
-    keymaps = [
-      {
-        key = "<leader>ld";
-        options.desc = "LSP Buffer Diagnostics";
-        action.__raw = ''
-          function()
-            local float = vim.diagnostic.config().float
-
-            if float then
-              local config = type(float) == "table" and float or {}
-              config.scope = "buffer"
-              vim.diagnostic.open_float(config)
-            end
-          end
-        '';
-      }
-      {
-        key = "gl";
-        options.desc = "LSP Line Diagnostics";
-        action.__raw = ''
-          function()
-            local float = vim.diagnostic.config().float
-
-            if float then
-              local config = type(float) == "table" and float or {}
-              config.scope = "line"
-              vim.diagnostic.open_float(config)
-            end
-          end
-        '';
-      }
-    ];
-  };
 }

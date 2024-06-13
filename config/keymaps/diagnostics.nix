@@ -3,17 +3,6 @@
 [
   {
     mode = "n";
-    key = "<Leader>ld";
-    options.desc = "Hover diagnostics";
-
-    action.__raw = ''
-      function()
-        vim.diagnostic.open_float()
-      end
-    '';
-  }
-  {
-    mode = "n";
     key = "[d";
     options.desc = "Previous diagnostic";
 

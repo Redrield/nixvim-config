@@ -3,7 +3,11 @@
   opts = {
     enable = true;
     autoEnableSources = true;
-    settings.snippet.expand = "luasnip";
+    settings.snippet.expand = ''
+      function(args)
+        require('luasnip').lsp_expand(args.body)
+      end
+    '';
     settings.sources = [
       { name = "nvim_lsp"; }
       { name = "path"; }

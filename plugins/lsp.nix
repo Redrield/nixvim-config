@@ -34,6 +34,16 @@
           desc = "LSP code action";
         };
 
+        "<leader>lr" = {
+          action = "rename";
+          desc = "LSP rename";
+        };
+
+        "<leader>lf" = {
+          action = "format";
+          desc = "LSP format";
+        };
+
         gd = {
           action = "definition";
           desc = "Go to definition";

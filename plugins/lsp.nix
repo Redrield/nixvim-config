@@ -83,7 +83,14 @@
     servers = {
       ansiblels.enable = true;
       bashls.enable = true;
-      clangd.enable = true;
+      clangd = {
+        enable = true;
+        extraOptions.before_init.__raw = ''
+          function(params, cconf)
+            params.offset_encoding = 'utf-16'
+          end
+        '';
+      };
       cssls.enable = true;
       docker-compose-language-service.enable = true;
       dockerls.enable = true;

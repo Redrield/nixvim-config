@@ -5,6 +5,8 @@
   opts = {
     enable = true;
 
+    capabilities = ''offsetEncoding = { "utf-16" }'';
+
     # Set keymaps when LSP is attached
     keymaps = {
       extra = [
@@ -83,15 +85,7 @@
     servers = {
       ansiblels.enable = true;
       bashls.enable = true;
-      clangd = {
-        enable = true;
-        extraOptions.before_init.__raw = ''
-          function(params, cconf)
-            params.offset_encoding = 'utf-16'
-          end
-        '';
-      };
-      cssls.enable = true;
+      clangd.enable = true;
       docker-compose-language-service.enable = true;
       dockerls.enable = true;
       eslint.enable = true;

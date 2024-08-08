@@ -5,8 +5,6 @@
   opts = {
     enable = true;
 
-    capabilities = ''offsetEncoding = { "utf-16" }'';
-
     # Set keymaps when LSP is attached
     keymaps = {
       extra = [
@@ -128,11 +126,6 @@
         enable = true;
         autostart = true;
         package = null;
-      };
-
-      typos-lsp = {
-        enable = true;
-        extraOptions.init_options.diagnosticSeverity = "Hint";
       };
     };
   };

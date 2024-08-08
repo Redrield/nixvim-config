@@ -83,6 +83,7 @@
     servers = {
       ansiblels.enable = true;
       bashls.enable = true;
+      clangd.enable = true;
       cssls.enable = true;
       docker-compose-language-service.enable = true;
       dockerls.enable = true;

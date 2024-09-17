@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   extra = {
-    packages = [ (pkgs.callPackage ./package.nix {} ) ];
+    packages = [ ( pkgs.callPackage ./package.nix {} ) ];
+    config = ''
+    vim.cmd('let g:flog_enable_extended_chars = v:true')
+    '';
   };
 
   rootOpts = {

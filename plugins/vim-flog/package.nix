@@ -10,4 +10,3 @@ vimUtils.buildVimPlugin rec {
     hash = "sha256-A3KQlYiLnrP1w0EUZ1UaiyxXqNKITrVlRbtSNFFsYFI=";
   };
 }
-

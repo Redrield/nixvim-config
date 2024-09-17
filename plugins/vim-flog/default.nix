@@ -9,7 +9,7 @@
       {
         mode = "n";
         key = "<leader>gL";
-        action = ":Flog";
+        action = ":Flog<cr>";
       }
     ];
   };

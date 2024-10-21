@@ -123,6 +123,7 @@
           flake8.enabled = true;
         };
       };
+      phpactor.enable = true;
       sqls.enable = true;
       terraformls.enable = true;
       ts-ls.enable = true;

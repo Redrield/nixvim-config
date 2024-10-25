@@ -127,7 +127,6 @@
       sqls.enable = true;
       terraformls.enable = true;
       ts-ls.enable = true;
-      yamlls.enable = true;
 
       #TODO: Dynamically put together the server configs from subfiles
       rust-analyzer = {

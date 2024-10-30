@@ -100,7 +100,6 @@
       gopls = {
         enable = true;
         autostart = true;
-        package = null;
       };
       helm-ls.enable = true;
       html.enable = true;
@@ -137,6 +136,7 @@
             local path = cconf.workspace_folders[1].name
             local conf = vim.fs.find("rust_analyzer.json", { path = path })
             if #conf == 1 then
+              
               local hdle = io.open(conf[1], "r")
               local contents = hdle:read("*all")
               hdle:close()

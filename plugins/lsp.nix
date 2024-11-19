@@ -94,6 +94,7 @@
       ansiblels.enable = true;
       bashls.enable = true;
       clangd.enable = true;
+      csharp-ls.enable = true;
       docker-compose-language-service.enable = true;
       dockerls.enable = true;
       eslint.enable = true;

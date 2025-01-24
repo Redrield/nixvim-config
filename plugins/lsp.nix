@@ -91,6 +91,7 @@
 
     # Load all servers definitions
     servers = {
+      arduino_language_server.enable = true;
       ansiblels.enable = true;
       bashls.enable = true;
       clangd.enable = true;

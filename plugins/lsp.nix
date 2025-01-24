@@ -95,20 +95,20 @@
       ansiblels.enable = true;
       bashls.enable = true;
       clangd.enable = true;
-      csharp-ls.enable = true;
-      docker-compose-language-service.enable = true;
+      csharp_ls.enable = true;
+      docker_compose_language_service.enable = true;
       dockerls.enable = true;
       eslint.enable = true;
       gopls = {
         enable = true;
         autostart = true;
       };
-      helm-ls.enable = true;
+      helm_ls.enable = true;
       html.enable = true;
-      java-language-server.enable = true;
+      java_language_server.enable = true;
       jsonls.enable = true;
-      lua-ls.enable = true;
-      nginx-language-server.enable = true;
+      lua_ls.enable = true;
+      nginx_language_server.enable = true;
       nixd.enable = true;
       pylsp = {
         enable = true;
@@ -127,10 +127,10 @@
       phpactor.enable = true;
       sqls.enable = true;
       terraformls.enable = true;
-      ts-ls.enable = true;
+      ts_ls.enable = true;
 
       #TODO: Dynamically put together the server configs from subfiles
-      rust-analyzer = {
+      rust_analyzer = {
         installCargo = false;
         installRustc = false;
         extraOptions.before_init.__raw = ''

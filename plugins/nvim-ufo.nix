@@ -6,7 +6,7 @@ _:
   opts = {
     enable = true;
 
-    preview.mappings = {
+    settings.preview.mappings = {
       scrollB = "<c-b>";
       scrollD = "<c-d>";
       scrollF = "<c-f>";
@@ -14,7 +14,7 @@ _:
     };
 
     # https://github.com/AstroNvim/AstroNvim/blob/v4.7.7/lua/astronvim/plugins/nvim-ufo.lua#L28-L44
-    providerSelector = ''
+    settings.provider_selector = ''
       function(_, filetype, buftype)
         local function handleFallbackException(bufnr, err, providerName)
           if type(err) == "string" and err:match "UfoFallbackException" then

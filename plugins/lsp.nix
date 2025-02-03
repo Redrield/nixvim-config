@@ -94,7 +94,7 @@
       arduino_language_server.enable = true;
       ansiblels.enable = true;
       bashls.enable = true;
-      ccls.enable = true;
+      clangd.enable = true;
       csharp_ls.enable = true;
       docker_compose_language_service.enable = true;
       dockerls.enable = true;

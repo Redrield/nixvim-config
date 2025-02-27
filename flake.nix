@@ -2,7 +2,7 @@
   description = "NixVim config heavily inspired by AstroNvim";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Nix formatting pack
     # https://gerschtli.github.io/nix-formatter-pack/nix-formatter-pack-options.html
@@ -12,7 +12,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/main";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
   };

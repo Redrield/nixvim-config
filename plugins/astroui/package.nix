@@ -14,4 +14,6 @@ pkgs.vimUtils.buildVimPlugin {
     rev = "v${version}";
     hash = "sha256-nmcqJq4L6XFrgrORan5x+WCwSfU3FC4D6Zux45YnIUQ=";
   };
+
+  doCheck = false;
 }

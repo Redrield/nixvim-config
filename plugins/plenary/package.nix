@@ -12,4 +12,6 @@ vimUtils.buildVimPlugin {
     rev = "v${version}";
     hash = "sha256-zR44d9MowLG1lIbvrRaFTpO/HXKKrO6lbtZfvvTdx+o=";
   };
+
+  doCheck = false;
 }

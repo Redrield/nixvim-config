@@ -47,7 +47,19 @@
 
       packages = forAllSystems (system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs { 
+            inherit system; 
+            overlays = [ (final: prev: {
+              ccls = prev.ccls.overrideAttrs (_: prevAttrs: {
+                src = prev.fetchFromGitHub {
+                  owner = "Redrield";
+                  repo = "ccls";
+                  rev = "fix/host-triple-when-unknown";
+                  hash = "sha256-M2/SDpcQvZfoGE+2Y/pfj5ma5Cog/BQwrN+BDGpXqcY=";
+                };
+              });
+            }) ];
+          };
           mkNixvim = specialArgs:
             nixvim.legacyPackages.${system}.makeNixvimWithModule {
               inherit pkgs;

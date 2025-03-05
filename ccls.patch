@@ -1,0 +1,27 @@
+diff --git a/src/indexer.cc b/src/indexer.cc
+index 074bea86..d7c9b7a1 100644
+--- a/src/indexer.cc
++++ b/src/indexer.cc
+@@ -121,6 +121,8 @@ StringRef getSourceInRange(const SourceManager &sm, const LangOptions &langOpts,
+ }
+ 
+ Kind getKind(const Decl *d, SymbolKind &kind) {
++  LOG_S(ERROR) << d->getDeclKindName() << " " << d->getKind();
++
+   switch (d->getKind()) {
+   case Decl::LinkageSpec:
+     return Kind::Invalid;
+@@ -1250,12 +1252,8 @@ IndexResult index(SemaManager *manager, WorkingFiles *wfiles, VFS *vfs, const st
+ #endif
+       &dc, false);
+   clang->getDiagnostics().setIgnoreAllWarnings(true);
+-  auto ti = TargetInfo::CreateTargetInfo(clang->getDiagnostics(), clang->getInvocation().TargetOpts);
+-  // Most likely an unknown target triple, replace with host target and try again.
+-  if(ti == nullptr) {
+     clang->getInvocation().getTargetOpts().Triple = llvm::sys::getDefaultTargetTriple();
+-    ti = TargetInfo::CreateTargetInfo(clang->getDiagnostics(), clang->getInvocation().TargetOpts);
+-  }
++  auto ti = TargetInfo::CreateTargetInfo(clang->getDiagnostics(), clang->getInvocation().TargetOpts);
+   clang->setTarget(ti);
+   if (!clang->hasTarget())
+     return {};

@@ -50,13 +50,26 @@
           pkgs = import nixpkgs { 
             inherit system; 
             overlays = [ (final: prev: {
+              # Force ccls to work with xtensa (Supported in libllvm 20 based deps)
               ccls = prev.ccls.overrideAttrs (_: prevAttrs: {
                 src = prev.fetchFromGitHub {
+                  owner = "MaskRay";
+                  repo = "ccls";
+                  rev = "master";
+                  hash = "sha256-OgdvY/F0sBVNEFDBDm3GK2QYRYeez1qiW8MuP+Yn7LI=";
+                };
+                /* src = prev.fetchFromGitHub {
                   owner = "Redrield";
                   repo = "ccls";
                   rev = "fix/host-triple-when-unknown";
                   hash = "sha256-M2/SDpcQvZfoGE+2Y/pfj5ma5Cog/BQwrN+BDGpXqcY=";
-                };
+                }; */
+
+                buildInputs = with prev.llvmPackages_20; [ libclang llvm prev.rapidjson ];
+                nativeBuildInputs = [ prev.cmake prev.llvmPackages_20.llvm.dev ];
+                clang = prev.llvmPackages_20.clang;
+
+                #patches = [ ./ccls.patch ];
               });
             }) ];
           };

@@ -110,7 +110,7 @@
       lua_ls.enable = true;
       nginx_language_server.enable = true;
       nixd.enable = true;
-      pylsp = {
+      /* pylsp = {
         enable = true;
         settings.plugins = {
           yapf.enabled = true;
@@ -123,7 +123,8 @@
           jedi_symbols.enabled = true;
           flake8.enabled = true;
         };
-      };
+      }; */
+      pyright.enable = true;
       phpactor.enable = true;
       sqls.enable = true;
       terraformls.enable = true;
